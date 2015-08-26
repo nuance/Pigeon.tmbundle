@@ -1,5 +1,5 @@
-{	scopeName = 'source.pegjs';
-	fileTypes = ( 'pegjs');
+{	scopeName = 'source.pigeon';
+	fileTypes = ( 'pigeon');
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
@@ -12,21 +12,21 @@
         {	include = '#literalDouble'; },
         {	include = '#literalSingle'; },
         
-	    {   name = 'source.pegjs.ruleDefinition';
+	    {   name = 'source.pigeon.ruleDefinition';
 	        match = "^([a-zA-Z$_][a-zA-Z$_0-9]*)[\t ]*(\".*\")[\t ]*=?";
 	        captures = {
 	            1 = {name = 'entity.name.type';};
 	            2 = {name = 'comment.line.double-slash';};
 	            };
 	    },
-	    {   name = 'source.pegjs.ruleDefinition';
+	    {   name = 'source.pigeon.ruleDefinition';
 	        match = "^([a-zA-Z$_][a-zA-Z$_0-9]*)[\t ]*('.*')[\t ]*=?";
 	        captures = {
 	            1 = {name = 'entity.name.type';};
 	            2 = {name = 'comment.line.double-slash';};
 	            };
 	    },
-	    {   name = 'source.pegjs.ruleDefinition';
+	    {   name = 'source.pigeon.ruleDefinition';
 	        match = "^([a-zA-Z_][a-zA-Z$_0-9]*)[\s\t]*=?";
 	        captures = {
 	            1 = {name = 'entity.name.type';};
@@ -36,12 +36,12 @@
 	);
 	repository = {
 	    scriptblock = {
-	        name = 'source.js.embedded.pegjs';
+	        name = 'source.go.embedded.pigeon';
 		    begin = '\{';
 			end = '\}';
 			patterns = (
 			        {include = '#scriptblock';},
-			        {include = 'source.js';}
+			        {include = 'source.go';}
 			        );
 	    };
 	    
@@ -67,25 +67,25 @@
 		    match = '[a-zA-Z$_][a-zA-Z$_0-9]*:';
 		};
 		literalSingle = {
-		    name = 'string.quoted.single.js';
+		    name = 'string.quoted.single.go';
             begin = "'";
             end = "'";
-            beginCaptures = { 0 = { name = 'punctuation.definition.string.begin.pegjs'; }; };
-            endCaptures = { 0 = { name = 'punctuation.definition.string.end.pegjs'; }; };
+            beginCaptures = { 0 = { name = 'punctuation.definition.string.begin.pigeon'; }; };
+            endCaptures = { 0 = { name = 'punctuation.definition.string.end.pigeon'; }; };
             patterns = (
-            	{	name = 'constant.character.escape.js';
+            	{	name = 'constant.character.escape.go';
             		match = '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)';
             	},
             	);
 		};
 		literalDouble = {
-		    name = 'string.quoted.double.pegjs';
+		    name = 'string.quoted.double.pigeon';
             begin = '"';
             end = '"';
-            beginCaptures = { 0 = { name = 'punctuation.definition.string.begin.pegjs'; }; };
-            endCaptures = { 0 = { name = 'punctuation.definition.string.end.pegjs'; }; };
+            beginCaptures = { 0 = { name = 'punctuation.definition.string.begin.pigeon'; }; };
+            endCaptures = { 0 = { name = 'punctuation.definition.string.end.pigeon'; }; };
             patterns = (
-            	{	name = 'constant.character.escape.pegjs';
+            	{	name = 'constant.character.escape.pigeon';
             	    match = '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)';
             	},
             	);
@@ -94,18 +94,18 @@
 		    name = 'comment.block.documentation.peg';
 		    begin = '/\*\*(?!/)';
 		    end = '\*/';
-		    captures = { 0 = { name = 'punctuation.definition.comment.pegjs'; }; };
+		    captures = { 0 = { name = 'punctuation.definition.comment.pigeon'; }; };
 		};  
 		commentBlock = {
 		    name = 'comment.block';
         	begin = '/\*';
         	end = '\*/';
-        	captures = { 0 = { name = 'punctuation.definition.comment.pegjs'; }; };
+        	captures = { 0 = { name = 'punctuation.definition.comment.pigeon'; }; };
 		};
 		commentLine = {
-		    name = 'comment.line.double-slash.js';
+		    name = 'comment.line.double-slash.go';
             match = '(//).*$\n?';
-            captures = { 1 = { name = 'punctuation.definition.comment.js'; }; };
+            captures = { 1 = { name = 'punctuation.definition.comment.go'; }; };
 		};
 	    
 	};
